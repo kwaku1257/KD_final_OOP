@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 public class ConnectionManager {
     // Define the connection parameters
-    private static final String SERVER = "jdbc:mysql://localhost:3306/chores_mgt"; // JDBC URL for the database
+    private static final String SERVER = "jdbc:mysql://localhost:3306/food"; // JDBC URL for the database
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
 
