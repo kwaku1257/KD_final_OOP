@@ -22,8 +22,4 @@ public class Food{
     public String getName(){
         return name;
     }
-
-
-
-
 }
