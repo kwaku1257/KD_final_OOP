@@ -87,5 +87,3 @@ public class User {
         return tdee;
     }
 }
-
-
