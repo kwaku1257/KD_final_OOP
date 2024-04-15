@@ -1,17 +1,17 @@
 -- Create the database schema
-Drop database if exists Food;
-Create database Food;
-Use Food;
+DROP DATABASE IF EXISTS Food;
+CREATE DATABASE Food;
+USE Food;
 
-Create Table Food (
-    id INTEGER PRIMARY KEY,
+CREATE TABLE Food (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT, -- Add AUTO_INCREMENT to the id column
     food_name TEXT NOT NULL,
     food_group TEXT NOT NULL,
     calories INTEGER NOT NULL
 );
 
 -- Insert data into the Food table
-Insert into Food (food_name, food_group, calories) VALUES 
+INSERT INTO Food (food_name, food_group, calories) VALUES 
 ('Chicken Breast', 'Protein', 185),
 ('Ground beef', 'Protein', 190),
 ('Boiled egg', 'Protein', 155),
@@ -24,4 +24,4 @@ Insert into Food (food_name, food_group, calories) VALUES
 ('Boiled yam', 'Carbohydrates', 118),
 ('Avocado', 'Fats and Oils', 160),
 ('Palm oil', 'Fats and Oils', 240),
-('Coconut oil', 'Fats and Oils', 234);`
+('Coconut oil', 'Fats and Oils', 234);
