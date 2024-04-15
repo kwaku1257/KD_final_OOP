@@ -16,7 +16,7 @@ public class FatsAndOils extends Food{
     
 
     }
-    public double calculateFatMaintainIntake(double tdee){
+    public static double calculateFatMaintainIntake(double tdee){
         return (0.225 * tdee)/9;
     }
 }
