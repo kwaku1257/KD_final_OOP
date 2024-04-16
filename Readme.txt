@@ -1,4 +1,4 @@
-# Nutrition Management Program
+# Akornor Calorie Calculator Prototype
 
 This program is designed to help users manage their nutrition by providing a random food combination based on the three major food groups: Protein, Carbohydrates, and Fats and Oils. The program takes input from the user regarding their age, sex, goal, activity level, weight, height, and desired targets for fat loss or weight gain. It then creates an array of `Food` objects by reading from a CSV file and randomly selects one food item from each category to provide a balanced meal plan.
 
