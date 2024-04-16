@@ -1,4 +1,5 @@
-import math;
+import math; //Importing the math library/class
+
 public class Carbohydrates extends Food{
     public Carbohydrates(String name, double calorieCount){
         super(name, calorieCount, "Carbohydrates");
