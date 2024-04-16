@@ -1,6 +1,7 @@
+//The User Class
 
 public class User {
-   
+//Defining instance variables   
     private int userAge;
     
     private char userSex;
@@ -19,7 +20,7 @@ public class User {
 
     private double MonthlyGainTarget; 
 
-    
+ // Constructor 
     public User(int userAge, char userSex, String userGoal, String activityLevel, double userWeight, double userHeight, double WeeklyFatLossTarget, double MonthlyGainTarget){
         this.userAge = userAge;
         this.userSex = userSex;
