@@ -28,13 +28,23 @@ public class Main {
         double userWeight = scanner.nextDouble();
         System.out.println("Enter your height in centimeters: ");
         double userHeight = scanner.nextDouble();
-        System.out.println("Enter your weekly fat loss target(Between 0.5% and 0.75%): ");
-        double weeklyFatLossTarget = scanner.nextDouble();
+        double weeklyFatLossTarget;
+        if (userGoal.equals("cut")) {
+            System.out.println("Enter your weekly fat loss target(Between 0.5% and 0.75%): ");
+            weeklyFatLossTarget = scanner.nextDouble(); }
+        else if (userGoal.equals("bulk")) {
+            System.out.println("Enter your weekly weight gain target(Between 0.5% and 0.75%): ");
+            weeklyFatLossTarget = scanner.nextDouble(); }
+        else {
+            weeklyFatLossTarget = 0.0; }
+
+
         System.out.println("\nFor monthly gain rate: ");
         System.out.println("Beginner: 2% (Totally new to training)");
         System.out.println("Novice: 1.5% (Still able to progress most training loads in the gym on a week to week basis)");
         System.out.println("Intermediate: 1% (Able to progress most training loads in the gym on a month to month basis)");
         System.out.println("Advanced: 0.5% (Progress is evident only when viewed over multiple months or a year)\n");
+        
         System.out.println("Enter monthly gain target: ");
         double MonthlyGainTarget = scanner.nextDouble();
 
