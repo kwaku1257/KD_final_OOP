@@ -5,12 +5,12 @@ public class User {
     
     private char userSex;
    
-    private String userGoal;
+    public String userGoal;
     
     private String activityLevel;
 
    // Weight in kilograms
-    private double userWeight;
+    public double userWeight;
 
    // Height in centimeters
     private double userHeight;

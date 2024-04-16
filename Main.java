@@ -38,11 +38,14 @@ public class Main {
         System.out.println("Enter monthly gain target: ");
         double MonthlyGainTarget = scanner.nextDouble();
 
+        User this_user = new User(userAge, userSex, userGoal, activityLevel, userWeight, userHeight, weeklyFatLossTarget, MonthlyGainTarget);
+        double intake = this_user.calculateCalories();
+
         // Read food data from CSV file
         readFoodFromCSV("db.csv");
 
         // Get and print a random food combination
-        getRandomFoodCombination();
+        getRandomFoodCombination(intake, this_user);
     }
 
     // Method to read food data from CSV file and create instances of Food
@@ -74,7 +77,7 @@ public class Main {
     }
 
     // Method to get and print a random food combination
-    private static void getRandomFoodCombination() {
+    private static void getRandomFoodCombination(double intake, User this_user) {
         Random random = new Random();
 
         // Get a random food from each category
@@ -83,9 +86,23 @@ public class Main {
         FatsAndOils randomFat = (FatsAndOils) fatsAndOils.get(random.nextInt(fatsAndOils.size()));
 
         // Print the random food combination
-        System.out.println("Random food combination:");
-        System.out.println("Protein: " + randomProtein.getName());
-        System.out.println("Carbohydrate: " + randomCarb.getName());
-        System.out.println("Fat/Oil: " + randomFat.getName());
+        if (activityLevel.equals("bulk")) {
+        System.out.println("Random food combination (calories):");
+        System.out.println("Protein: " + Proteins.calculateproteinBulkIntake(this_user.userWeight) + randomProtein.getName());
+        System.out.println("Carbohydrate: " +  + randomCarb.getName());
+        System.out.println("Fat/Oil: " +  + randomFat.getName()); }
+
+        else if (activityLevel.equals("cut")) {
+        System.out.println("Random food combination (calories):");
+        System.out.println("Protein: " + Proteins.calculateproteinCutIntake(this_user.userWeight) + randomProtein.getName());
+        System.out.println("Carbohydrate: " +  + randomCarb.getName());
+        System.out.println("Fat/Oil: " +  + randomFat.getName()); }
+
+        else {
+        System.out.println("Random food combination (calories):");
+        System.out.println("Protein: " + Proteins.calculateproteinMaintainIntake(this_user.userWeight) + randomProtein.getName());
+        System.out.println("Carbohydrate: " +  + randomCarb.getName());
+        System.out.println("Fat/Oil: " +  + randomFat.getName()); }
+        }
     }
 }
