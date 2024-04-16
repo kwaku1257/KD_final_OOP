@@ -19,26 +19,27 @@ public class Main {
         int userAge = scanner.nextInt();
         System.out.println("Enter sex('M' or 'F'): ");
         char userSex = scanner.next().charAt(0);
+        scanner.nextLine();
         System.out.println("Enter your goal (cut/bulk/maintain): ");
-        String userGoal = scanner.next();
+        String userGoal = scanner.nextLine();
         System.out.println("Enter your activity level (Sedentary/Lightly Active/Highly Active): ");
-        String activityLevel = scanner.next();
+        String activityLevel = scanner.nextLine();
         System.out.println("Enter your weight in kilograms: ");
         double userWeight = scanner.nextDouble();
         System.out.println("Enter your height in centimeters: ");
         double userHeight = scanner.nextDouble();
         System.out.println("Enter your weekly fat loss target(Between 0.5% and 0.75%): ");
         double weeklyFatLossTarget = scanner.nextDouble();
-        System.out.println("For monthly gain rate: ");
+        System.out.println("\nFor monthly gain rate: ");
         System.out.println("Beginner: 2% (Totally new to training)");
         System.out.println("Novice: 1.5% (Still able to progress most training loads in the gym on a week to week basis)");
         System.out.println("Intermediate: 1% (Able to progress most training loads in the gym on a month to month basis)");
-        System.out.println("Advanced: 0.5% (Progress is evident only when viewed over multiple months or a year)");
+        System.out.println("Advanced: 0.5% (Progress is evident only when viewed over multiple months or a year)\n");
         System.out.println("Enter monthly gain target: ");
         double MonthlyGainTarget = scanner.nextDouble();
 
         // Read food data from CSV file
-        readFoodFromCSV("path_to_csv_file.csv");
+        readFoodFromCSV("db.csv");
 
         // Get and print a random food combination
         getRandomFoodCombination();
