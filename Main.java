@@ -86,23 +86,22 @@ public class Main {
         FatsAndOils randomFat = (FatsAndOils) fatsAndOils.get(random.nextInt(fatsAndOils.size()));
 
         // Print the random food combination
-        if (activityLevel.equals("bulk")) {
+        if (this_user.userGoal.equals("bulk")) {
         System.out.println("Random food combination (calories):");
         System.out.println("Protein: " + Proteins.calculateproteinBulkIntake(this_user.userWeight) + randomProtein.getName());
-        System.out.println("Carbohydrate: " +  + randomCarb.getName());
-        System.out.println("Fat/Oil: " +  + randomFat.getName()); }
+        System.out.println("Fat/Oil: " + FatsAndOils.calculateFatBulkIntake(this_user.calculateTDEE()) + randomFat.getName());
+        System.out.println("Carbohydrate: " + Carbohydrates.calculateCarbIntake(this_user.calculateTDEE(), Proteins.calculateproteinBulkIntake(this_user.userWeight), FatsAndOils.calculateFatBulkIntake(this_user.calculateTDEE())) + randomCarb.getName()); }
 
-        else if (activityLevel.equals("cut")) {
+        else if (this_user.userGoal.equals("cut")) {
         System.out.println("Random food combination (calories):");
         System.out.println("Protein: " + Proteins.calculateproteinCutIntake(this_user.userWeight) + randomProtein.getName());
-        System.out.println("Carbohydrate: " +  + randomCarb.getName());
-        System.out.println("Fat/Oil: " +  + randomFat.getName()); }
+        System.out.println("Fat/Oil: " + FatsAndOils.calculateFatCutIntake(this_user.calculateTDEE()) + randomFat.getName()); 
+        System.out.println("Carbohydrate: " + Carbohydrates.calculateCarbIntake(this_user.calculateTDEE(), Proteins.calculateproteinCutIntake(this_user.userWeight), FatsAndOils.calculateFatCutIntake(this_user.calculateTDEE())) + randomCarb.getName()); }
 
         else {
         System.out.println("Random food combination (calories):");
         System.out.println("Protein: " + Proteins.calculateproteinMaintainIntake(this_user.userWeight) + randomProtein.getName());
-        System.out.println("Carbohydrate: " +  + randomCarb.getName());
-        System.out.println("Fat/Oil: " +  + randomFat.getName()); }
-        }
+        System.out.println("Fat/Oil: " + FatsAndOils.calculateFatMaintainIntake(this_user.calculateTDEE()) + randomFat.getName()); 
+        System.out.println("Carbohydrate: " + Carbohydrates.calculateCarbIntake(this_user.calculateTDEE(), Proteins.calculateproteinMaintainIntake(this_user.userWeight), FatsAndOils.calculateFatMaintainIntake(this_user.calculateTDEE())) + randomCarb.getName());}
     }
 }
