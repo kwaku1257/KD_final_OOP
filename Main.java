@@ -1,3 +1,4 @@
+//Importing needed classes/libraries
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    // Create lists to hold different types of food
+    // Creating lists to hold different types of food
     private static ArrayList<Food> proteins = new ArrayList<>();
     private static ArrayList<Food> carbohydrates = new ArrayList<>();
     private static ArrayList<Food> fatsAndOils = new ArrayList<>();
@@ -14,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Get user inputs
+        // Getting user inputs
         System.out.println("Enter your age: ");
         int userAge = scanner.nextInt();
         System.out.println("Enter sex('M' or 'F'): ");
@@ -30,6 +31,7 @@ public class Main {
         double userHeight = scanner.nextDouble();
         double weeklyFatLossTarget = 0;
         double MonthlyGainTarget = 0;
+
         if (userGoal.equals("cut")) {
             System.out.println("Enter your weekly fat loss target(Between 0.005(0.5%) and 0.0075(0.75%)): ");
             weeklyFatLossTarget = scanner.nextDouble(); }
@@ -45,24 +47,24 @@ public class Main {
         User this_user = new User(userAge, userSex, userGoal, activityLevel, userWeight, userHeight, weeklyFatLossTarget, MonthlyGainTarget);
         double intake = this_user.calculateCalories();
 
-        // Read food data from CSV file
+        // Reading food data from CSV file
         readFoodFromCSV("db.csv");
 
         // Get and print a random food combination
         getRandomFoodCombination(intake, this_user);
     }
 
-    // Method to read food data from CSV file and create instances of Food
+    // A Method to read food data from CSV file and create instances of Food
     private static void readFoodFromCSV(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Split the line into food name and food group
+                // Splitting the line into food name and food group
                 String[] parts = line.split(",\\s*");
                 String foodName = parts[0].replace("'", "").trim();
                 String foodGroup = parts[1].replace("'", "").trim();
 
-                // Create food instances based on the food group
+                // Creating food instances based on the food group
                 switch (foodGroup) {
                     case "Protein":
                         proteins.add(new Proteins(foodName, 0));  // Assuming 0 calories for now, adjust as needed
@@ -80,16 +82,16 @@ public class Main {
         }
     }
 
-    // Method to get and print a random food combination
+    //A  Method to get and print a random food combination
     private static void getRandomFoodCombination(double intake, User this_user) {
         Random random = new Random();
 
-        // Get a random food from each category
+        // Getting a random food from each category
         Proteins randomProtein = (Proteins) proteins.get(random.nextInt(proteins.size()));
         Carbohydrates randomCarb = (Carbohydrates) carbohydrates.get(random.nextInt(carbohydrates.size()));
         FatsAndOils randomFat = (FatsAndOils) fatsAndOils.get(random.nextInt(fatsAndOils.size()));
 
-        // Print the random food combination
+        // Printing the random food combination
         if (this_user.userGoal.equals("bulk")) {
         System.out.println("Random food combination (calories):");
         System.out.println("Protein: " + Proteins.calculateproteinBulkIntake(this_user.userWeight) + " " + randomProtein.getName());
