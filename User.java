@@ -7,7 +7,7 @@ public class User {
    
     public String userGoal;
     
-    private String activityLevel;
+    public String activityLevel;
 
    // Weight in kilograms
     public double userWeight;
@@ -42,7 +42,7 @@ public class User {
         }
         return 0;
     }
-    private double calculateTDEE(String activityLevel){
+    public double calculateTDEE(String activityLevel){
         double bmr = calculateBMR();
         double multiplier;
         switch (activityLevel) {
